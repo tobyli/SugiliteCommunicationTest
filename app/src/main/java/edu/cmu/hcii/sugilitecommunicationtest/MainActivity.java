@@ -54,6 +54,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void endTrackingOnClick (View view){
+        Toast.makeText(this, "end tracking ", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+        intent.putExtra("messageType", "END_TRACKING");
+        intent.putExtra("scriptName", "NULL");
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityForResult(intent, 1);
+
+    }
+
+    public void startTrackingOnClick (View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        builder.setTitle("Set script name")
+                .setView(editText)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String scriptName = editText.getText().toString();
+                        Toast.makeText(context , "start new tracking " + scriptName, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+                        intent.putExtra("messageType", "START_TRACKING");
+                        intent.putExtra("scriptName", scriptName);
+                        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivityForResult(intent, 1);
+
+                    }
+                }).show();
+
+
+    }
+
     public void runScriptOnClick (View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final EditText editText = new EditText(this);
@@ -92,6 +124,35 @@ public class MainActivity extends AppCompatActivity {
                 }).show();
     }
 
+    public void getTrackingListOnClick (View view){
+        Toast.makeText(this, "getting tracking list", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+        intent.putExtra("messageType", "GET_TRACKING_LIST");
+        intent.putExtra("scriptName", "NULL");
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityForResult(intent, 1);
+
+    }
+
+    public void getTrackingOnClick (View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        builder.setTitle("Set tracking name")
+                .setView(editText)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String scriptName = editText.getText().toString();
+                        Toast.makeText(context, "getting the tracking " + scriptName, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+                        intent.putExtra("messageType", "GET_TRACKING");
+                        intent.putExtra("scriptName", scriptName);
+                        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivityForResult(intent, 1);
+                    }
+                }).show();
+    }
+
     public void getScriptListOnClick (View view){
         Toast.makeText(this, "getting script list", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
@@ -100,6 +161,15 @@ public class MainActivity extends AppCompatActivity {
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
 
+    }
+
+    public void clearTrackingListOnClick (View view){
+        Toast.makeText(this, "clearing script list", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+        intent.putExtra("messageType", "CLEAR_TRACKING_LIST");
+        intent.putExtra("scriptName", "NULL");
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivityForResult(intent, 1);
     }
 
     @Override
