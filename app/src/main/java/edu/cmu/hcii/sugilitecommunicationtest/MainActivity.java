@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Context context;
+    private final static String CALL_BACK_STRING = "NULL";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context , "start new recording " + scriptName, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
                         intent.putExtra("messageType", "START_RECORDING");
-                        intent.putExtra("scriptName", scriptName);
+                        intent.putExtra("arg1", scriptName);
+                        intent.putExtra("arg2", CALL_BACK_STRING);
                         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivityForResult(intent, 1);
 
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "end recording ", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
         intent.putExtra("messageType", "END_RECORDING");
-        intent.putExtra("scriptName", "NULL");
+        intent.putExtra("arg1", "NULL");
+        intent.putExtra("arg2", CALL_BACK_STRING);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
 
@@ -58,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "end tracking ", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
         intent.putExtra("messageType", "END_TRACKING");
-        intent.putExtra("scriptName", "NULL");
+        intent.putExtra("arg1", "NULL");
+        intent.putExtra("arg2", CALL_BACK_STRING);
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
 
@@ -76,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context , "start new tracking " + scriptName, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
                         intent.putExtra("messageType", "START_TRACKING");
-                        intent.putExtra("scriptName", scriptName);
+                        intent.putExtra("arg1", scriptName);
+                        intent.putExtra("arg2", CALL_BACK_STRING);
                         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivityForResult(intent, 1);
 
@@ -97,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
                         String scriptName = editText.getText().toString();
                         Toast.makeText(context, "running the script " + scriptName, Toast.LENGTH_SHORT).show();Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
                         intent.putExtra("messageType", "RUN_SCRIPT");
-                        intent.putExtra("scriptName", scriptName);
+                        intent.putExtra("arg1", scriptName);
+                        intent.putExtra("arg2", CALL_BACK_STRING);
                         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivityForResult(intent, 1);
 
@@ -117,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context, "getting the script " + scriptName, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
                         intent.putExtra("messageType", "GET_SCRIPT");
-                        intent.putExtra("scriptName", scriptName);
+                        intent.putExtra("arg1", scriptName);
+                        intent.putExtra("arg2", "NULL");
                         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivityForResult(intent, 1);
                     }
@@ -128,7 +135,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "getting tracking list", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
         intent.putExtra("messageType", "GET_TRACKING_LIST");
-        intent.putExtra("scriptName", "NULL");
+        intent.putExtra("arg1", "NULL");
+        intent.putExtra("arg2", "NULL");
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
 
@@ -146,7 +154,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(context, "getting the tracking " + scriptName, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
                         intent.putExtra("messageType", "GET_TRACKING");
-                        intent.putExtra("scriptName", scriptName);
+                        intent.putExtra("arg1", scriptName);
+                        intent.putExtra("arg2", "NULL");
                         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivityForResult(intent, 1);
                     }
@@ -157,7 +166,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "getting script list", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
         intent.putExtra("messageType", "GET_SCRIPT_LIST");
-        intent.putExtra("scriptName", "NULL");
+        intent.putExtra("arg1", "NULL");
+        intent.putExtra("arg2", "NULL");
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
 
@@ -167,7 +177,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "clearing script list", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
         intent.putExtra("messageType", "CLEAR_TRACKING_LIST");
-        intent.putExtra("scriptName", "NULL");
+        intent.putExtra("arg1", "NULL");
+        intent.putExtra("arg2", "NULL");
         //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivityForResult(intent, 1);
     }
