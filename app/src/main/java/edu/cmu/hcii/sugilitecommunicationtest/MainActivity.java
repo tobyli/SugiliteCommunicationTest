@@ -183,6 +183,23 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
 
+    public void registerBroadcastingOnClick (View view){
+        Toast.makeText(this, "register for broadcasting", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("edu.cmu.hcii.sugilite.BROADCASTING");
+        intent.putExtra("messageType", "REGISTER");
+        intent.putExtra("arg1", "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION");
+        startActivityForResult(intent, 1);
+    }
+
+    public void unregisterBroadcastingOnClick (View view){
+        Toast.makeText(this, "unregister for broadcasting", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("edu.cmu.hcii.sugilite.BROADCASTING");
+        intent.putExtra("messageType", "UNREGISTER");
+        intent.putExtra("arg1", "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION");
+        startActivityForResult(intent, 1);
+        startActivityForResult(intent, 1);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
