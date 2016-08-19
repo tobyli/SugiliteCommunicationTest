@@ -200,6 +200,25 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
 
+    public void runJsonOnClick (View view){
+        Toast.makeText(this, "running json", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        builder.setTitle("Enter JSON")
+                .setView(editText)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String scriptName = editText.getText().toString();
+                        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+                        intent.putExtra("messageType", "RUN_JSON");
+                        intent.putExtra("arg1", editText.getText().toString());
+                        intent.putExtra("arg2", "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION");
+                        startActivityForResult(intent, 1);
+                    }
+                }).show();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

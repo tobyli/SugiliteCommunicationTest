@@ -119,6 +119,15 @@
                 android:layout_gravity="center_horizontal"
                 android:onClick="unregisterBroadcastingOnClick" />
 
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Run JSON"
+                android:id="@+id/run_json_button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="runJsonOnClick"
+                android:nestedScrollingEnabled="false" />
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
