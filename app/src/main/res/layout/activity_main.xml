@@ -128,6 +128,15 @@
                 android:onClick="runJsonOnClick"
                 android:nestedScrollingEnabled="false" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add JSON as a Script"
+                android:id="@+id/add_json_as_script_button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="addJsonScriptOnClick"
+                android:nestedScrollingEnabled="false" />
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
