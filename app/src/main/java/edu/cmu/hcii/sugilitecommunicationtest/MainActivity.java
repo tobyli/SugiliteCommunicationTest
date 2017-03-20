@@ -197,8 +197,35 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("messageType", "UNREGISTER");
         intent.putExtra("arg1", "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION");
         startActivityForResult(intent, 1);
+    }
+
+    public void getAllAppVocabOnClick (View view){
+        Toast.makeText(this, "getting all app voab", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+        intent.putExtra("messageType", "GET_ALL_PACKAGE_VOCAB");
+        intent.putExtra("arg1", "NULL");
+        intent.putExtra("arg2", "NULL");
         startActivityForResult(intent, 1);
     }
+
+    public void getAppVocabOnClick (View view){
+        Toast.makeText(this, "getting all app voab", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        builder.setTitle("Set tracking name")
+                .setView(editText)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+                        intent.putExtra("messageType", "GET_PACKAGE_VOCAB");
+                        intent.putExtra("arg1", editText.getText().toString());
+                        intent.putExtra("arg2", "NULL");
+                        startActivityForResult(intent, 1);
+                    }
+                }).show();
+    }
+
 
     public void runJsonOnClick (View view){
         Toast.makeText(this, "running json", Toast.LENGTH_SHORT).show();
@@ -209,9 +236,26 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String scriptName = editText.getText().toString();
                         Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
                         intent.putExtra("messageType", "RUN_JSON");
+                        intent.putExtra("arg1", editText.getText().toString());
+                        intent.putExtra("arg2", "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION");
+                        startActivityForResult(intent, 1);
+                    }
+                }).show();
+    }
+
+    public void runScriptWithParameterOnClick (View view){
+        Toast.makeText(this, "running script with parameter", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        builder.setTitle("Enter JSON")
+                .setView(editText)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent("edu.cmu.hcii.sugilite.COMMUNICATION");
+                        intent.putExtra("messageType", "RUN_SCRIPT_WITH_PARAMETERS");
                         intent.putExtra("arg1", editText.getText().toString());
                         intent.putExtra("arg2", "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION");
                         startActivityForResult(intent, 1);
@@ -228,10 +272,12 @@ public class MainActivity extends AppCompatActivity {
                 if(result != null){
                     TextView resultView = (TextView)findViewById(R.id.communication_result);
                     resultView.setText(result);
+                    System.out.println(result);
                 }
 
             }
             if (resultCode == Activity.RESULT_CANCELED) {
+                //do nothing
             }
         }
     }

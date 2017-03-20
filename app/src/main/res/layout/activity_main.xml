@@ -122,13 +122,38 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:text="Get All App Vocab"
+                android:id="@+id/get_all_app_vocab_list_button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="getAllAppVocabOnClick" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Get App Vocab"
+                android:id="@+id/get_app_vocab_list_button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="getAppVocabOnClick" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="Run JSON"
                 android:id="@+id/run_json_button"
                 android:layout_gravity="center_horizontal"
                 android:onClick="runJsonOnClick"
                 android:nestedScrollingEnabled="false" />
 
-            <TextView
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Run Script with Parameter"
+                android:id="@+id/run_script_with_parameter_button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="runScriptWithParameterOnClick"
+                android:nestedScrollingEnabled="false" />
+
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"

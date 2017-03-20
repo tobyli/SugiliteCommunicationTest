@@ -26,6 +26,7 @@ public class CommunicationActivity extends AppCompatActivity {
                     .create();
             dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
             dialog.show();
+            System.out.println(eventBody);
         }
         finish();
     }
