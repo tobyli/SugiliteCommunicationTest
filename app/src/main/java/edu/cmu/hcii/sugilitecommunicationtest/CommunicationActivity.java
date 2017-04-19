@@ -7,15 +7,16 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 public class CommunicationActivity extends AppCompatActivity {
-    String messageType, eventBody;
+    Integer messageType;
+    String eventBody;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent().getExtras() != null) {
-            messageType = getIntent().getStringExtra("messageType");
+            messageType = getIntent().getIntExtra("messageType", 0);
             eventBody = getIntent().getStringExtra("eventBody");
             AlertDialog dialog = new AlertDialog.Builder(this)
-                    .setTitle("New Event")
+                    .setTitle("New Event " + messageType)
                     .setMessage(eventBody)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override

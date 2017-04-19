@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Context context;
-    private final static String CALL_BACK_STRING = "NULL";
+    private final static String CALL_BACK_STRING = "edu.cmu.hcii.sugilitecommunicationtest.COMMUNICATION";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         context = this;
